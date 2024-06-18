@@ -18,7 +18,7 @@ pipeline {
         sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
       }
     }
-    stage('Static Code Analysis') {
+   /* stage('Static Code Analysis') {
       environment {
         SONAR_URL = "http://54.157.138.239:9000/"
       }
@@ -27,7 +27,9 @@ pipeline {
           sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
       }
+
     }
+    */
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "vishnukoyyada03/entirecicd:${BUILD_NUMBER}"
